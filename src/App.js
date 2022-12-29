@@ -1,4 +1,6 @@
 import './App.css';
+import List from './List';
+import Alert from './Alert';
 
 function App() {
   return (
