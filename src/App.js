@@ -1,4 +1,3 @@
-import './App.css'
 import React, { useState } from 'react';
 import List from './List';
 import Alert from './Alert';
@@ -11,7 +10,18 @@ function App() {
   const [alert, setAlert] = useState({show: false, mg: '', type: ''});
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('hello')
+    if(!name){ 
+      // display alert
+    }
+    else if(name && isEditing) {
+      // deal with edit
+    }
+    else{
+      // show alert
+      const newItem = {id: new Date().getTime().toString(), title: name};
+      setList([...list, newItem]);
+      setName('');
+    }
   }
 
   return <section className="section-center">
@@ -32,7 +42,7 @@ function App() {
             </button>
           </div>
         </form>
-        <List />
+        <List items={list} />
         <button className="clear-btn">Clear Items</button>
       </div>
     </section>
