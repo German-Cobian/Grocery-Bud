@@ -24,28 +24,32 @@ function App() {
     }
   }
 
-  return <section className="section-center">
-      <div className="grocery-container">
-        <form className="grocery-form" onSubmit={handleSubmit}>
-          {alert.show && <Alert />}
-          <h3>Grocery Bud</h3>
-          <div className="form-control">
-            <input
-              type="text"
-              className="grocery"
-              placeholder="e.g. eggs"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <button type="submit" className="submit-btn">
-              {isEditing ? "edit" : "submit"}
-            </button>
-          </div>
-        </form>
-        <List items={list} />
-        <button className="clear-btn">Clear Items</button>
-      </div>
+  return (
+    <section className="section-center">
+      <form className="grocery-form" onSubmit={handleSubmit}>
+        {alert.show && <Alert />}
+        <h3>Grocery Bud</h3>
+        <div className="form-control">
+          <input
+            type="text"
+            className="grocery"
+            placeholder="e.g. eggs"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button type="submit" className="submit-btn">
+            {isEditing ? "edit" : "submit"}
+          </button>
+        </div>
+      </form>
+      {list.length > 0 && (
+        <div className="grocery-container">
+          <List items={list} />
+          <button className="clear-btn">Clear Items</button>
+        </div>
+      )}
     </section>
+  )
 }
 
 export default App;
