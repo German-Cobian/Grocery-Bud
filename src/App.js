@@ -16,25 +16,29 @@ function App() {
     e.preventDefault()
     if(!name){ 
       // display alert
-      setAlert({show: true, msg: 'Please enter item', type: 'danger'})
+      showAlert(true, 'Please enter item','danger')
     }
     else if(name && isEditing) {
       // deal with edit
-      setAlert({show: true, msg: 'Item edited successfully', type: 'success'})
+      showAlert(true, 'Item edited successfully', 'success')
     }
     else{
       // show alert
-      setAlert({show: true, msg: 'Item entered successfully', type: 'success'})
+      showAlert(true, 'Item entered successfully', 'success')
       const newItem = {id: new Date().getTime().toString(), title: name};
       setList([...list, newItem]);
       setName('');
     }
   }
 
+  const showAlert = (show=false, msg='', type='') => {
+    setAlert({show, msg, type})
+  }
+
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
-        {alert.show && <Alert {...alert} removeAlert={setAlert}/>}
+        {alert.show && <Alert {...alert} removeAlert={showAlert}/>}
         <h3>Grocery Bud</h3>
         <div className="form-control">
           <input
