@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from './List';
 import Alert from './Alert';
 
@@ -7,7 +7,11 @@ function App() {
   const [list, setList] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({show: false, mg: '', type: ''});
+  const [alert, setAlert] = useState({
+    show: true,
+    msg: 'Hello World!',
+    type: 'success',
+  });
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!name){ 
@@ -27,7 +31,7 @@ function App() {
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
-        {alert.show && <Alert />}
+        {alert.show && <Alert {...alert} />}
         <h3>Grocery Bud</h3>
         <div className="form-control">
           <input
