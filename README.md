@@ -1,11 +1,11 @@
 # Grocery-Bud
 
-A simple React app that allows users to input items they wish to buy at the grocery store.
+A simple React app that allows users to input items they wish to buy at the grocery store...
 
 ![GroceryBud](/public/Enter-item.png?raw=true "Grocery-Bud")
 ![GroceryBud](/public/Item-entered.png?raw=true "Grocery-Bud")
 
-edit a previously entered item, remove a specific item and eliminate from list all the items entered once bought.
+... then edit a previously entered item, remove a specific item, or eliminate from the list all the items entered.
  
 The app is based on the eponimous project that appears in the tutorial [Code 15 React Projects - Complete Course](https://youtu.be/a_7Z7C_JCyo) by freeCodeCamp.org.
 
