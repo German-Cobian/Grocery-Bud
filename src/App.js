@@ -15,7 +15,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!name){ 
-      // display alert
+      // No item entered alert
       showAlert(true, 'Please enter item','danger')
     }
     else if(name && isEditing) {
@@ -23,7 +23,7 @@ function App() {
       showAlert(true, 'Item edited successfully', 'success')
     }
     else{
-      // show alert
+      // Item entered alert
       showAlert(true, 'Item entered successfully', 'success')
       const newItem = {id: new Date().getTime().toString(), title: name};
       setList([...list, newItem]);
@@ -33,6 +33,11 @@ function App() {
 
   const showAlert = (show=false, msg='', type='') => {
     setAlert({show, msg, type})
+  }
+
+  const clearList = () => {
+    showAlert(true, 'List emptied', 'danger');
+    setList([]);
   }
 
   return (
@@ -56,7 +61,7 @@ function App() {
       {list.length > 0 && (
         <div className="grocery-container">
           <List items={list} />
-          <button className="clear-btn">Clear Items</button>
+          <button className="clear-btn" onClick={clearList}>Clear Items</button>
         </div>
       )}
     </section>
